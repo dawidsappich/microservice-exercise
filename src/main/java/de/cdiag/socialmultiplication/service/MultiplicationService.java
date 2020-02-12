@@ -2,7 +2,8 @@ package de.cdiag.socialmultiplication.service;
 
 import de.cdiag.socialmultiplication.domain.Multiplication;
 import de.cdiag.socialmultiplication.domain.MultiplicationResultAttempt;
-import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 public interface MultiplicationService {
 
@@ -17,4 +18,6 @@ public interface MultiplicationService {
      * @return true if the attempt matches the result of the multiplication, otherwise false
      */
     boolean checkAttempt(final MultiplicationResultAttempt resultAttempt);
+
+    List<MultiplicationResultAttempt> getStatsForUser(String userAlias);
 }
