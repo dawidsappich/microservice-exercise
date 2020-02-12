@@ -2,7 +2,9 @@ package de.cdiag.socialmultiplication.service;
 
 import de.cdiag.socialmultiplication.domain.Multiplication;
 import de.cdiag.socialmultiplication.domain.MultiplicationResultAttempt;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MultiplicationServiceImpl implements MultiplicationService {
 
     private final RandomGeneratorService randomGeneratorService;
@@ -21,6 +23,6 @@ public class MultiplicationServiceImpl implements MultiplicationService {
     @Override
     public boolean checkAttempt(MultiplicationResultAttempt resultAttempt) {
         return resultAttempt.getResultAttempt()
-                == resultAttempt.getMultiplication().getFactorA() * resultAttempt.getMultiplication().getFactorA();
+                == resultAttempt.getMultiplication().getFactorA() * resultAttempt.getMultiplication().getFactorB();
     }
 }

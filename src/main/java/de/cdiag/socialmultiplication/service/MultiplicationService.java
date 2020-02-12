@@ -4,7 +4,6 @@ import de.cdiag.socialmultiplication.domain.Multiplication;
 import de.cdiag.socialmultiplication.domain.MultiplicationResultAttempt;
 import org.springframework.stereotype.Service;
 
-@Service
 public interface MultiplicationService {
 
     /**
