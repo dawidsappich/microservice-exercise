@@ -23,14 +23,11 @@ public class MultiplicationResultAttemptController {
     }
 
     @PostMapping
-    public ResponseEntity<ResultResponse> postResults(@RequestBody MultiplicationResultAttempt attempt) {
-        return new ResponseEntity<>(new ResultResponse(multiplicationService.checkAttempt(attempt)), HttpStatus.OK);
+    public ResponseEntity<MultiplicationResultAttempt> postResults(@RequestBody MultiplicationResultAttempt attempt) {
+        final boolean isCorrect = multiplicationService.checkAttempt(attempt);
+        final MultiplicationResultAttempt checkedAttempt
+                = new MultiplicationResultAttempt(attempt.getUser(), attempt.getMultiplication(), attempt.getResultAttempt(), isCorrect);
+        return new ResponseEntity<>(checkedAttempt, HttpStatus.OK);
     }
 
-    @RequiredArgsConstructor
-    @NoArgsConstructor(force = true)
-    @Getter
-    static final class ResultResponse {
-        private final boolean correct;
-    }
 }
