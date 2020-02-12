@@ -1,17 +1,24 @@
 package de.cdiag.socialmultiplication.domain;
 
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
-@Data
-public class Multiplication {
+/**
+ * this represents a Multiplication (a * b)
+ */
+@RequiredArgsConstructor
+@Getter
+@ToString
+@EqualsAndHashCode
+public final class Multiplication {
 
     private final int factorA;
     private final int factorB;
-    private final int result;
 
-    public Multiplication(int factorA, int factorB) {
-        this.factorA = factorA;
-        this.factorB = factorB;
-        this.result = this.factorA * this.factorB;
+    // Empty constructor for JSON (de)serialization
+    public Multiplication() {
+        this(0, 0);
     }
 }
